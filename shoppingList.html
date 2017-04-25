@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+	
+</head>
+<html>
+<body>
+
+
+	<p>WELCOME TO CHUCK'S SHOPPING LIST APP.  <br>Click the button to get the sum of the prices in the array.</p>
+<button onclick="calculate()">TOTAL PRICE OF ITEMS</button>
+		<!-- Note:  The button is calling the calculate function on click.-->
+		<!-- From earlier version, remember that you were overwriting the displayed prices because prices was in parentheses of the calculate function.-->
+		<!-- Addressed this issue by creating a new id called "sum" and then calling sum in the parenthese of the calculate function.  And placing sum id near top.-->
+
+		<p>Sum of prices in the array:</p>
+		<p id = "sum"></p>
+
+	
+
+	<h2 id="header">Shopping List</h2>
+
+
+	<p id = "shopList"></p>
+
+	<script>
+	var items, text, iLen, i;
+	
+	items = ["Butter", "Milk",  "Yogurt", "Bananas", "Apples" ];
+	iLen = items.length;
+	text = "<ul>";
+	for(i = 0; i < iLen; i++){
+	text += "<li>" + items[i] + "</li>"; 
+	}
+	text += "</ul>";
+	document.getElementById("shopList").innerHTML = text;
+	</script>
+	
+	<p id = "prices"></p>
+		<script>
+		var prices, double, pLen, i;
+		prices = [3.09, 3.19, 4.12, 7.29, 4.19 ];
+		pLen = prices.length;
+		double = "<ul>";
+		for(i=0; i < pLen; i++) {
+		double += "<li>" + prices[i] + "</li>";
+		}
+		double += "</ul>";
+		document.getElementById("prices").innerHTML = double;
+		
+			function getSum(total, prices){
+			
+			return total + prices;
+			}
+			function calculate(item){
+			document.getElementById("sum").innerHTML = prices.reduce(getSum);
+			}
+		
+		</script>
+		
+	
+</body>
+</html>
